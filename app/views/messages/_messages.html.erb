@@ -1,0 +1,14 @@
+<div class="message">
+<% begin%>
+  <p>
+    <%= message.content %>
+  </p>
+<%rescue%>
+  <p>
+    <% @messages.each do |m| %>
+	<%= m.content %>	
+     <%end%>
+  </p>
+
+<%end%>
+</div>
