@@ -1,7 +1,15 @@
 <div align="center" class="container">
   <h1 class="title">Bate Papo</h1>
   <div id="messages">
-    <%= render "messages/messages" %>
+  <% @messages.each do |m| %>
+
+   <div class="message">
+      <p>
+      <%= m.user.name %>
+      <%= m.content %>
+      </p>
+   </div>
+  <%end%>
   </div>
  
   <form>
