@@ -7,6 +7,9 @@
       <p>
       <%= m.user.name %>:
       <%= m.content %>
+      <%if current_user == m.user%>
+      <%= link_to 'Remover', message_path(m), method: :delete %> 
+      <% end %>
       </p>
    </div>
   <%end%>

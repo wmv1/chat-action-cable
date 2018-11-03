@@ -1,15 +1,7 @@
 <div class="message">
-<% begin%>
   <p>
     <%= message.user.name %>:
     <%= message.content %>
+    <%= link_to 'Remover', message_path(message), method: :delete %> 
   </p>
-<%rescue%>
-  <p>
-    <% @messages.each do |m| %>
-	<%= m.content %>	
-     <%end%>
-  </p>
-
-<%end%>
 </div>
