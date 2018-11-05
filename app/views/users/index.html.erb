@@ -1,0 +1,5 @@
+<%@users.each do |user|%>
+<div>
+  <%= link_to(user.name, root_path) if user_signed_in?%>
+</div>
+<%end%>
