@@ -4,4 +4,7 @@ class ChatsController < ApplicationController
    @messages = Message.all
 	p @messages
   end
+  def create
+  
+  end
 end
