@@ -12,6 +12,9 @@
   </head>
 
   <body>
+      <div>
+       Olá <%= current_user.name if user_signed_in?%>
+      </div>
        <%= link_to('Home', root_path) if user_signed_in?%>
        <%= link_to('Lista de usuários', users_path) if user_signed_in?%>
        <%= link_to('Logout', destroy_user_session_path, method:'delete', class: 'nav-link') if user_signed_in?%>
