@@ -1,3 +1,8 @@
+<%p "*******************************************"%>
+<%p current_user%>
+<%p message.user.id%>
+<%p message.secondary_user%>
+<%if user_signed_in? && current_user.id == message.secondary_user %>
 <div class="message" data-user-id="<%= message.user.id %>">
    <p>
      <%= message.user.name %>:
@@ -5,3 +10,4 @@
      <%= link_to 'Remover', message_path(message), method: :delete %> 
    </p>
  </div>
+<% end %>
