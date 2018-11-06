@@ -1,4 +1,5 @@
 <div align="center" class="container">
+  <input type="hidden" id="secondary_user_id" value="<%= @chat_with_user.id %>">
   <h1 class="title">Bate Papo com <%= @chat_with_user.name %></h1>
 <div data-user-id="<%= @user %>">
   <div id="messages">
@@ -16,7 +17,6 @@
   <%end%>
   </div>
   <form>
-    <input type="text" id="secondary_user_id" value="<%= @user%>">
     <input type="text" data-behavior="chat_speaker" placeholder=" Diga alguma coisa :) ">
   </form>
 </div>

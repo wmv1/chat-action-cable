@@ -2,7 +2,9 @@
 <%p current_user%>
 <%p message.user.id%>
 <%p message.secondary_user%>
-<%if user_signed_in? && current_user.id == message.secondary_user %>
+<%p message.user%>
+
+<%if user_signed_in? && current_user.id == message.secondary_user || current_user.id == message.user%>
 <div class="message" data-user-id="<%= message.user.id %>">
    <p>
      <%= message.user.name %>:
