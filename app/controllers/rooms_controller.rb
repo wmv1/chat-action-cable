@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
         redirect_to  user_rooms_path
     end
     def index
+	@chat_with_user = User.find params['user_id']
         @user = params['user_id']
         @messages = Message.where("user_id = ?
                                    and secondary_user = ?
