@@ -6,7 +6,13 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#messages').append data['message']
+    $('#messages').append data['message'] unless @userIsCurrentUser(data.message)
+
+  userIsCurrentUser: (message) ->
+    console.log("um "+  $(message).attr('data-user-id'))
+    console.log("dois "+$('meta[name=current-user]').attr('id'))
+    $(message).attr('data-user-id') is $('meta[name=current-user]').attr('id')
+
 
   speak: (message, user) ->
     console.log(user)
@@ -15,7 +21,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   $(document).on 'keypress', '[data-behavior~=chat_speaker]', (event) ->
     if event.keyCode is 13 # return = send
-      user  = document.getElementById("user_id").value
+      user  = document.getElementById("secondary_user_id").value
       App.chat.speak event.target.value, user
       event.target.value = ""
       event.preventDefault()

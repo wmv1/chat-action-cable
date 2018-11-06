@@ -1,8 +1,7 @@
-
-<div class="message">
-  <p>
-    <%= message.user.name %>:
-    <%= message.content %>
-    <%= link_to 'Remover', message_path(message), method: :delete %> 
-  </p>
-</div>
+<div class="message" data-user-id="<%= message.user.id %>">
+   <p>
+     <%= message.user.name %>:
+     <%= message.content %>
+     <%= link_to 'Remover', message_path(message), method: :delete %> 
+   </p>
+ </div>
