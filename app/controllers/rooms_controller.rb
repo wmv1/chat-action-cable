@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
         redirect_to  user_rooms_path
     end
     def index
+        @user = params['user_id']
         @messages = Message.all
    end
 end

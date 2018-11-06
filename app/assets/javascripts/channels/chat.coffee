@@ -8,12 +8,14 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     $('#messages').append data['message']
 
-  speak: (message) ->
-    @perform 'speak', message: message
+  speak: (message, user) ->
+    console.log(user)
+    @perform 'speak', message: message, user: user
 
 
   $(document).on 'keypress', '[data-behavior~=chat_speaker]', (event) ->
     if event.keyCode is 13 # return = send
-      App.chat.speak event.target.value
+      user  = document.getElementById("user_id").value
+      App.chat.speak event.target.value, user
       event.target.value = ""
       event.preventDefault()
