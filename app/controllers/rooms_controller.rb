@@ -7,6 +7,13 @@ class RoomsController < ApplicationController
     end
     def index
         @user = params['user_id']
-        @messages = Message.all
+        @messages = Message.where("user_id = ?
+                                   and secondary_user = ?
+                                   or user_id = ? 
+                                   and secondary_user = ?", 
+                                   current_user, 
+                                   @user, 
+                                   @user, 
+                                   current_user)
    end
 end

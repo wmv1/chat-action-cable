@@ -7,6 +7,9 @@ class ChatBroadcastJob < ApplicationJob
  
   private
   def render_message(message)
-    ApplicationController.renderer.render(partial: '../views/messages/messages', locals: { message: message, test: "teste" })
+    unless message.user == current_user || message.secondary_user == current_user.id
+      ApplicationController.renderer.render(partial: '../views/messages/messages', locals: { message: message, test: "teste" })  
+    end
+    
   end
 end
