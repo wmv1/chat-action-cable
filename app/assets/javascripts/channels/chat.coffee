@@ -6,12 +6,15 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#messages').append data['message'] unless @userIsCurrentUser(data.message)
+    console.log("*********** "+data.message)
+    console.log($('#messages').append data['message'] if @userIsCurrentUser(data.message))
+    $('#messages').append data['message'] if @userIsCurrentUser(data.message)
 
   userIsCurrentUser: (message) ->
-    console.log("um "+  $(message).attr('data-user-id'))
-    console.log("dois "+$('meta[name=current-user]').attr('id'))
-    $(message).attr('data-user-id') is $('meta[name=current-user]').attr('id')
+    console.log("data-from-user-id "+  $(message).attr('data-from-user-id'))
+    console.log("data-user-id "+  $(message).attr('data-user-id'))
+    console.log("name=current-user "+$('meta[name=current-user]').attr('id'))
+    $(message).attr('data-user-id') == $('meta[name=current-user]').attr('id') && $(message).attr('data-chat-room-user-id') == $(message).attr('data-from-user-id')
 
 
   speak: (message, user) ->
