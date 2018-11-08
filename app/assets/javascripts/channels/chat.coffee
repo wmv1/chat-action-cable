@@ -7,14 +7,13 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   received: (data) ->
     console.log("*********** "+data.message)
-    console.log($('#messages').append data['message'] if @userIsCurrentUser(data.message))
     $('#messages').append data['message'] if @userIsCurrentUser(data.message)
 
   userIsCurrentUser: (message) ->
     console.log("data-from-user-id "+  $(message).attr('data-from-user-id'))
     console.log("data-user-id "+  $(message).attr('data-user-id'))
     console.log("name=current-user "+$('meta[name=current-user]').attr('id'))
-    $(message).attr('data-user-id') == $('meta[name=current-user]').attr('id') && $(message).attr('data-chat-room-user-id') == $(message).attr('data-from-user-id')
+    $(message).attr('data-user-id') == $('meta[name=current-user]').attr('id') && $(message).attr('data-from-user-id') == $('div[name=data-chat-room-user-id]').attr('id')
 
 
   speak: (message, user) ->
