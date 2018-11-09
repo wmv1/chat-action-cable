@@ -16,6 +16,6 @@ class RoomsController < ApplicationController
                                    current_user, 
                                    @user, 
                                    @user, 
-                                   current_user)
+                                   current_user).order(:id)
    end
 end
