@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+    before_action :authenticate_user!
     def create
         @chat_room = ChatRoom.create
         Room.create(user: current_user, chat_room: @chat_room)

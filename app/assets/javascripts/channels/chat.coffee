@@ -7,7 +7,9 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   received: (data) ->
     console.log("*********** "+data.message)
-    $('#messages').append data['message'] if @userIsCurrentUser(data.message)
+    $('#messages').append data['message'] location.reload() if @userIsCurrentUser(data.message)
+    $('#messages').append data['message'] if  $('meta[name=current-user]').attr('id') == $(data.message).attr('data-from-user-id')
+    #location.reload() if @userIsCurrentUser(data.message)
 
   userIsCurrentUser: (message) ->
     console.log("data-from-user-id "+  $(message).attr('data-from-user-id'))
