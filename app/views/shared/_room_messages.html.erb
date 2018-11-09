@@ -7,7 +7,7 @@
   <% @messages.each do |m| %>
    <div class="message">
     <p>
-      <%= m.created_at.strftime("%d/%m/%y %I:%M %p")%>
+      <%= m.created_at.strftime("%d/%m/%y %H:%M ")%>
       <%= m.user.name %>:
       <%= m.content %>
       <%if current_user == m.user || current_user.admin%>
