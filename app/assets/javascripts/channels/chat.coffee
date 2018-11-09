@@ -1,5 +1,7 @@
 App.chat = App.cable.subscriptions.create "ChatChannel",
   connected: ->
+    console.log("connected ********************************")
+    @scroll()
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
@@ -7,9 +9,9 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   received: (data) ->
     console.log("*********** "+data.message)
-    $('#messages').append data['message'] location.reload() if @userIsCurrentUser(data.message)
+    $('#messages').append data['message']  if @userIsCurrentUser(data.message)
     $('#messages').append data['message'] if  $('meta[name=current-user]').attr('id') == $(data.message).attr('data-from-user-id')
-    #location.reload() if @userIsCurrentUser(data.message)
+    location.reload() if @userIsCurrentUser(data.message)
 
   userIsCurrentUser: (message) ->
     console.log("data-from-user-id "+  $(message).attr('data-from-user-id'))
@@ -22,6 +24,9 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     console.log(user)
     @perform 'speak', message: message, user: user
 
+  scroll: () ->
+    area = document.getElementById("messages");
+    area.scrollIntoView({block: "end"})
 
   $(document).on 'keypress', '[data-behavior~=chat_speaker]', (event) ->
     if event.keyCode is 13 # return = send

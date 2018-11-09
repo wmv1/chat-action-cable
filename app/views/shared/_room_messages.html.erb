@@ -1,7 +1,7 @@
 <div align="center" class="container">
   <input type="hidden" id="secondary_user_id" value="<%= @chat_with_user.id %>">
   <h1 class="title">Bate Papo com <%= @chat_with_user.name %></h1>
-<div name="data-chat-room-user-id" id="<%= @user %>">
+<div name="data-chat-room-user-id" id="<%= @user %>" style="width: 80%; height: 300px; overflow-y: scroll;" >
   <div id="messages">
 
   <% @messages.each do |m| %>
@@ -16,8 +16,11 @@
    </div>
   <%end%>
   </div>
+</div>
+<div>
   <form>
     <input type="text" data-behavior="chat_speaker" placeholder=" Diga alguma coisa :) ">
   </form>
 </div>
+
 </div>

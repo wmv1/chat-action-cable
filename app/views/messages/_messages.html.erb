@@ -5,12 +5,10 @@
 <%p message.secondary_user%>
 <%p message.user%>
 <%p message%>
-<%#if current_user.id == message.secondary_user%>
 <div data-from-user-id="<%= message.user.id %>" class="message" data-user-id="<%= message.secondary_user %>">
    <p>
      <%= message.user.name %>:
      <%= message.content %>
-     <%= link_to 'Remover', message_path(message), method: :delete %> 
+     <%= link_to 'Remover', message_path(message), method: :delete if  message.user == current_user%> 
    </p>
  </div>
-<% #end %>
