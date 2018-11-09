@@ -1,3 +1,5 @@
+#Responsãovel por receber a mensagem da view
+
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chat_channel"
