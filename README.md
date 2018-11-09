@@ -11,8 +11,9 @@ App que usa o ActionCable Active Jobs
   entrar na pasta do projeto
   rodar bin/setup
 * Documentação utilizada no estudo
+```
 https://guides.rubyonrails.org/active_job_basics.html
 https://api.rubyonrails.org/classes/ActionView/PartialRenderer.html
 https://api.rubyonrails.org/classes/ActionController/Renderer.html
 https://guides.rubyonrails.org/action_cable_overview.html#full-stack-examples
-
+```
