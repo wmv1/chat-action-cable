@@ -17,7 +17,4 @@ https://api.rubyonrails.org/classes/ActionView/PartialRenderer.html
 https://api.rubyonrails.org/classes/ActionController/Renderer.html
 https://guides.rubyonrails.org/action_cable_overview.html#full-stack-examples
 ```
-<<<<<<< HEAD
 
-=======
->>>>>>> chat_entre_usuarios
