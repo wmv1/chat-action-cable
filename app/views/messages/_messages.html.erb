@@ -1,7 +1,15 @@
-<div class="message">
-  <p>
-    <%= message.user.name %>:
-    <%= message.content %>
-    <%= link_to 'Remover', message_path(message), method: :delete %> 
-  </p>
-</div>
+<%p "*******************************************"%>
+<%p current_user%>
+<%p message.user.id%>
+<%p "*******************************************"%>
+<%p message.secondary_user%>
+<%p message.user%>
+<%p message%>
+<div data-from-user-id="<%= message.user.id %>" class="message" data-user-id="<%= message.secondary_user %>">
+   <p>
+     <%= message.created_at.strftime("%d/%m/%y %H:%M ")%>
+     <%= message.user.name %>:
+     <%= message.content %>
+     <%= link_to 'Remover', message_path(message), method: :delete if  message.user == current_user%> 
+   </p>
+ </div>

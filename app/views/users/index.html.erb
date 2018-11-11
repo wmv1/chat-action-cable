@@ -1,5 +1,5 @@
 <%@users.each do |user|%>
 <div>
-  <%= link_to(user.name, chats_path(user), method:'post') if user_signed_in?%>	
+  <%= link_to(user.name, user_rooms_path(user), method:'post') if user_signed_in? && current_user.name != user.name %>	
 </div>
 <%end%>
