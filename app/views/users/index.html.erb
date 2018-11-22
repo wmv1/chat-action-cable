@@ -1,5 +1,14 @@
+<% javascript_include_tag 'users'%>
+<div id="list-users">
+<table style="width:10%">
 <%@users.each do |user|%>
 <div>
-  <%= link_to(user.name, user_rooms_path(user), method:'post') if user_signed_in? && current_user.name != user.name %>	
+<tr>
+  <td><%= link_to(user.name, user_rooms_path(user), method:'post') if user_signed_in? && current_user.name != user.name %></td>
+  <td id='status-on-off-<%=user.id%>'>  <%=  user.online? if current_user.name != user.name   %></td>
+</tr>
+
 </div>
 <%end%>
+</table>
+</div>

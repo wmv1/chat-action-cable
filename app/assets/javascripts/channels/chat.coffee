@@ -24,6 +24,11 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     console.log(user)
     @perform 'speak', message: message, user: user
 
+  falar: (message, user) ->
+    console.log(user)
+    @perform 'falar', message: message, user: user
+
+
   scroll: () ->
     area = document.getElementById("messages");
     area.scrollIntoView({block: "end"})

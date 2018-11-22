@@ -6,4 +6,20 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  def appear
+    self.online = true   
+    self.save!
+  end
+  def disappear
+   self.online = false
+   self.save!
+  end
+  
+  def online?
+   if self.online
+      "online"
+   else
+      "offline"
+   end
+  end
 end

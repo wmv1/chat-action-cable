@@ -8,8 +8,7 @@ class ChatChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-p"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:"     
-current_user.disappear
+    current_user.disappear
   end
   def speak (data)
        p "ChatChannel***********"

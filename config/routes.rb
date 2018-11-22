@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :rooms
   end
-
+  
+/   namespace :api, defaults: {format: :json} do
+     namespace :v1 do
+       resources :users
+     end
+   end  /
+  get 'json_users', to: 'json#list_all_json'
 
 end

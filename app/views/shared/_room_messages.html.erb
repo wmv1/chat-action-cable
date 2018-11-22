@@ -1,6 +1,6 @@
 <div align="center" class="container">
   <input type="hidden" id="secondary_user_id" value="<%= @chat_with_user.id %>">
-  <h1 class="title">Bate Papo com <%= @chat_with_user.name %></h1>
+  <h1 class="title">Bate Papo com <%= @chat_with_user.name %> <%= @chat_with_user.online? %></h1>
 <div name="data-chat-room-user-id" id="<%= @user %>" style="width: 80%; height: 300px; overflow-y: scroll;" >
   <div id="messages">
 
